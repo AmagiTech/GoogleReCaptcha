@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+    <Authors>Muharrem Barkin</Authors>
+    <Company>Amagi Tech</Company>
+    <PackageProjectUrl>https://github.com/AmagiTech/GoogleReCaptcha</PackageProjectUrl>
+  </PropertyGroup>
+
+</Project>

@@ -1,0 +1,32 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<form id="formV2" method="post">
+    <h1>Recaptcha V2 Sample</h1>
+    <recaptchaV2 is-form="true"></recaptchaV2>
+    <input type="submit" value="Gönder"/>
+</form>
+
+<hr />
+
+<form id="formV3" method="post">
+    <h1>Recaptcha V3 Sample</h1>
+    <recaptchaV3Button data-callback="onSubmit" data-action="submit">Gönder</recaptchaV3Button>
+</form>
+
+<hr />
+
+<h1>Model State Errors</h1>
+@Html.ValidationSummary()
+
+@section Scripts{
+
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <script>
+        function onSubmit(token) {
+            var formV3 = document.getElementById("formV3");
+            formV3.submit();
+        }
+    </script>
+}
