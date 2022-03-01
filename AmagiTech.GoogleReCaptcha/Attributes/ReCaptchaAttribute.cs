@@ -35,7 +35,7 @@ namespace AmagiTech.GoogleReCaptcha.Attributes
             }
             if (!isCaptchaValid)
             {
-                context.ModelState.AddModelError("Hata!", "Capthca doğrulamasını geçemediniz!");
+                context.ModelState.AddModelError("Error", "Captcha validation failed!");
             }
             base.OnActionExecuting(context);
         }
