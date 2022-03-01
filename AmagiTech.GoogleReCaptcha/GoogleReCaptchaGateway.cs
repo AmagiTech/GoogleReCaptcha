@@ -14,7 +14,7 @@ namespace AmagiTech.GoogleReCaptcha
 
         public string ClientKey => _googleReCaptchaSettings.UseCaptcha ? _googleReCaptchaSettings.ClientKey : string.Empty;
 
-        public bool SiteVerify(string response)
+        public bool SiteVerify(string response, decimal score = 0.5m)
         {
             if (!_googleReCaptchaSettings.UseCaptcha)
                 return true;
@@ -29,7 +29,14 @@ namespace AmagiTech.GoogleReCaptcha
 
             var jsonResponse = httpResponse.Content.ReadAsStringAsync().Result;
             var result = JsonSerializer.Deserialize<RecaptchaResponse>(jsonResponse);
-            return result.Success;            
+
+            if (!result.Success)
+                return false;
+
+            decimal _score = 1;
+            if (result.Score != null)
+                _score = result.Score.Value;
+            return result.Success && _score >= score;
         }
     }
 }

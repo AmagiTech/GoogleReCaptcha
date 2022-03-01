@@ -6,5 +6,9 @@ namespace AmagiTech.GoogleReCaptcha
     {
         [JsonPropertyName("success")]
         public bool Success { get; set; }
+
+
+        [JsonPropertyName("score")]
+        public decimal? Score { get; set; }
     }
 }
