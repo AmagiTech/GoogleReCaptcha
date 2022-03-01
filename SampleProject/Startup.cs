@@ -30,6 +30,7 @@ namespace SampleProject
             .Get<GoogleReCaptchaSettings>(q => q.BindNonPublicProperties = true));
             services.AddScoped<IGoogleReCaptchaGateway, GoogleReCaptchaGateway>();
             services.AddScoped<ReCaptchaAttribute, ReCaptchaAttribute>();
+            services.AddScoped<IGoogleReCaptchaManager, GoogleReCaptchaManager>();
             
             
             services.AddControllersWithViews();
