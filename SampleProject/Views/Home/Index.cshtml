@@ -2,20 +2,36 @@
     ViewData["Title"] = "Home Page";
 }
 
-<form id="formV2" method="post">
-    <h1>Recaptcha V2 Sample</h1>
+<h1>With Attribute</h1>
+<form id="formOne" method="post" action="@Url.Action("WithAttribute")">
+    <h2>Recaptcha V2 Sample</h2>
     <recaptchaV2 is-form="true"></recaptchaV2>
-    <input type="submit" value="Gönder"/>
+    <input type="submit" value="Gönder" />
 </form>
 
 <hr />
 
-<form id="formV3" method="post">
-    <h1>Recaptcha V3 Sample</h1>
+<form id="formTwo" method="post" action="@Url.Action("WithAttribute")">
+    <h2>Recaptcha V3 Sample</h2>
     <recaptchaV3Button data-callback="onSubmit" data-action="submit">Gönder</recaptchaV3Button>
 </form>
+<hr />
+<h1>Without Attribute</h1>
+<form id="formThree" method="post" action="@Url.Action("WithoutAttribute")">
+    <h2>Recaptcha V2 Sample</h2>
+    <recaptchaV2 is-form="true"></recaptchaV2>
+    <input type="submit" value="Gönder" />
+</form>
 
 <hr />
+
+<form id="formFour" method="post" action="@Url.Action("WithoutAttribute")">
+    <h2>Recaptcha V3 Sample</h2>
+    <recaptchaV3Button data-callback="onSubmitF4" data-action="submit">Gönder</recaptchaV3Button>
+</form>
+
+<hr />
+
 
 <h1>Model State Errors</h1>
 @Html.ValidationSummary()
@@ -25,8 +41,13 @@
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     <script>
         function onSubmit(token) {
-            var formV3 = document.getElementById("formV3");
-            formV3.submit();
+            var formTwo = document.getElementById("formTwo");
+            formTwo.submit();
+        }
+
+        function onSubmitF4(token) {
+            var formFour = document.getElementById("formFour");
+            formFour.submit();
         }
     </script>
 }
